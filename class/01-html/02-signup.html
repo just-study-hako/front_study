@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>회원가입</title>
+</head>
+<body>
+    <h2>회원가입</h2>
+    <input type="text" placeholder="이메일을 입력해 주세요"><br><br>         <!-- 추후에 css 사용법을 배우기 전까지는 이렇게 사용-->
+    <input type="text" placeholder="이름을 입력해 주세요"><br><br>
+    <input type="password" placeholder="비밀번호를 입력해 주세요"><br><br>
+    <input type="password" placeholder="비밀번호를 다시 입력해 주세요"><br><br>
+    <select>
+        <option disabled="true" selected="true">지역을 선택해 주세요</option>   <!-- disabled="true" : 선택 불가능, selected="true" : 기본상태가 선택되있는 상태-->
+        <option>서울</option>
+        <option>경기</option>
+        <option>인천</option>
+    </select>
+    <br><br>
+    <input type="radio" name="gender"> 여성
+    <input type="radio" name="gender"> <span>남성</span>                                     <!-- 보이기에는 그냥 여성 이렇게 써있지만 실제로는 span 태그로 감싼것과 동일함 css 등에서 지정할때는 span 으로 감싸서 사용하면됨 -->
+    <br><br>
+    <input type="checkbox"> 이용약관 개인정보 수집에 동의함
+    <hr>
+    <button>가입하기</button>
+    <input type="button" value="가입하기">
+    <!-- button태그 같은경우엔 input 보다 훨씬 가공하기가 좋기에 button 태그를 훨씬 많이 사용함. -->
+    
+</body>
+</html>
