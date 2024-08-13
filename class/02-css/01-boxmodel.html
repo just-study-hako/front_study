@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Document</title>
+    <style> 
+        /* *{ 
+            box-sizing: border-box;
+        } */
+             /*전체 선택자 * */
+
+        div {       /* 태그를 선택할때는 선택자 특문 따로 없음 */
+            width: 80px;
+            height: 80px;
+            border:1px solid red;
+            padding: 10px;
+        }
+
+        /* id 선택자 # */
+
+        #contentBox{
+            box-sizing: content-box;
+        }
+        #borderBox{
+            box-sizing: border-box;
+        } 
+    </style>
+</head>
+<body>
+    <div id="contentBox">박스1</div>    <!-- 컨텐츠 박스로 만들것 -->
+    <div>박스2</div>    <!-- 그냥 기본 상태로 둘것 -->
+    <div id="borderBox">박스3</div>    <!-- 보더 박스로 만들것 -->
+</body>
+</html>
