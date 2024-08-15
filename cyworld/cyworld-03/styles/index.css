@@ -1,0 +1,158 @@
+*{
+    box-sizing: border-box;
+    margin:0px;
+}
+
+.background{
+    width: 1024px;
+    height: 600px;
+    background-image: url("../images/background.png");
+    padding: 20px 0px 0px 20px;  /* 위쪽부터 시계방향으로*/   
+}
+
+.outerbox{
+    width: 808px;
+    height: 544px;
+    background-image: url("../images/outerbox.png");
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    padding:32px 0px 0px 32px;
+}
+
+.wrapper__left{
+    width: 208px;
+    height: 472px;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper__left__header{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.today{
+    font-size: 9px;
+}
+
+.wrapper__left__body{
+    width: 100%;
+    height: 100%;
+    border: 1px solid gray;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 30px;
+}
+
+.left__body__header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.left__body__header__gray{
+    width: 100%;
+    height: 133px;
+    background-color: gray;
+}
+
+.left__body__header__line{
+    border-top: 1px dotted black;
+    margin: 12px 0px;   /* 2개만 입력하면 각각 상하, 좌우 */
+}
+
+.left__body__profile{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.profile__detail {
+    color: #999999;
+    font-size: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.profile__detail__title{
+    margin-left: 5px;
+}
+
+.left__body__footer{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.wrapper__feel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.feel__title {
+    font-size: 11px;
+    margin-bottom: 5px;
+    color: gray;
+}
+
+.left__body__footer__feels{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 100% 값은 부모의 값을 그대로 가져와서 사용한다고 보면됨.*/
+.wrapper__right{
+    width: 524px;
+    height: 472px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0px 5px;
+}
+
+
+.wrapper__right__header{
+    width: 510px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0px 14px;
+}
+
+.right__header__title, .right__header__setting{
+    color: #55B2E4;
+    font-size: 9px;
+}
+
+.right__header__title{
+    font-size: 16px;
+}
+
+.wrapper__right__body{
+    width: 510px;
+    height: 445px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    background-color: white;
+}
+
+iframe{
+    width: 100%;
+    height: 100%;
+}
