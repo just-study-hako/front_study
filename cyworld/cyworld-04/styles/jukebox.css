@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wrapper__header{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper__body{
+    width: 100%;
+    height: 50%;
+}
+
+.wrapper__title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title{
+    font-size: 13px;
+    color: #55B2E4;
+    font-weight: 700;
+}
+
+.subtitle{
+    font-size: 9px;
+    padding-left: 5px;
+}
+.divideLine{
+    width: 100%;
+    border-top: 1px solid gray;
+}
+
+.albumWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.album{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.album__title{
+    font-size: 11px;
+    color: #076496;
+    font-weight: 700;
+}
+
+.album__creator{
+    font-size: 9px;
+}
+
+.albumTable{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* 테두리 중복 제거 */
+}
+thead{
+    height:20%
+}
+
+th, td {
+    text-align: left;
+}
+
+
+tbody tr {
+    border-bottom: 1px dashed #000; /* 점선 스타일 */
+    height:20%
+}
+
+thead th {
+    border-top: 3px solid gray;
+    border-bottom: 1px dashed #000;
+    font-size: 15px;
+    color:gray
+}
+.album__num, .album__check{
+    text-align: center;
+}
