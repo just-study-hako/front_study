@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>회원가입</title>
+    <link href="./css/index.css" rel="stylesheet">
+    <script src="./js/index.js"></script>
+</head>
+<body>
+    <div class="title">회원가입</div>
+    <div class="inforbox">
+        <div class="input__check">
+            <input class="infor" id="email" placeholder="이메일을 입력해 주세요.">
+            <span class="wrong__input" id="wrong__email"></span>
+        </div>
+        <div class="input__check">
+            <input class="infor" id="name" placeholder="이름을 입력해 주세요.">
+            <span class="wrong__input" id="wrong__name"></span>
+        </div>
+        <div class="input__check">
+            <input type="password"  class="infor" id="pw1" placeholder="비밀번호를 입력해 주세요.">
+            <span class="wrong__input" id="wrong__pw1"></span>
+        </div>
+        <div class="input__check">
+            <input type="password"  class="infor" id="pw2" placeholder="비밀번호를 다시 입력해 주세요.">
+            <span class="wrong__input" id="wrong__pw2"></span>
+        </div>
+        <div class="infor__Phone">
+            <input class="phone" id="phone1" oninput="inputPhone1()" >
+            <div class="phone__hip"> ― </div>
+            <input class="phone" id="phone2" oninput="inputPhone2()" >
+            <div class="phone__hip"> ― </div>
+            <input class="phone" id="phone3" oninput="inputPhone3()">
+        </div>
+        <div class="auth">
+            <span class="auth__number" id="auth__number">000000</span>
+            <button class="auth__button" id="auth__button" onclick="authNumber()" disabled="true">
+                <div class="auth__text">인증번호 전송</div>
+            </button>
+        </div>
+        <div class="auth">
+            <span class="auth__number" id="auth__time">0 : 00</span>
+            <button class="finish__button" id="finish__button"  onclick="authComplete()">
+                <div class="auth__text">인증 완료</div>
+            </button>
+        </div>
+        <div class="input__check">
+            <select class="location" id="location__now">
+                <option value="" disabled="true" selected="true">지역을 선택하세요</option> 
+                <option value="서울">서울</option>
+                <option value="경기">경기</option>
+                <option value="인천">인천</option>
+            </select>
+            <span class="wrong__input" id="wrong__location"></span>
+        </div>
+        <div class="input__check">
+            <div class="gender">
+                <div class="gender__opt">
+                    <input class="gendercheck" type="radio" name="gender" id="gender__fe" value="1">
+                    <div class="gender__font">여성</div>
+                </div>
+                <div class="gender__opt">
+                    <input class="gendercheck" type="radio" name="gender" id="gender__me" value="2">
+                    <div class="gender__font">남성</div>
+                </div>
+            </div>
+            <span class="wrong__input" id="wrong__gender"></span>
+        </div>
+        <div class="divideLine"></div>
+    </div>
+    <button class="signup__button" id="signup__button" disabled="true" onclick="inputCheck()">가입하기</button>
+</body>
+</html>
