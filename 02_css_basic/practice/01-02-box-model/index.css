@@ -1,0 +1,38 @@
+
+/* .box1{
+    background-color: gray;   
+    width: 400px;                 
+    height: 300px;               
+    border: 2px solid red;     
+
+    padding: 50px;      
+    margin: 50px; 
+} */
+/*
+    background-color: gray;       배경색
+    width: 400px;                 너비
+    height: 300px;                높이
+    border: 2px solid red;        외곽선
+
+    padding: 50px;                내부 여백
+    margin: 50px;                 외부 여백
+*/
+
+
+div{
+    width: 200px;
+    height: 200px;
+    background-color: lightslategray;
+}
+.box1{
+    padding: 50px;
+    border: 1px solid blue;
+}
+/*
+위처럼 만들면 속성상 두개의 박스 모두 200, 200px, 배경색은 회색으로 되어야 하지만
+실제로 해보면 box2만 크기를 유지하고
+box1은 크기가 훨씬 커지게된다.
+이는 박스 사이징 속성 때문.
+1. content-box : 컨텐츠 영역을 기준으로 box 사이즈를 적용
+2. border-box : Border 영역을 기준으로 box 사이즈를 적용
+box-sizing:  속성을 주지 않으면 기본은 content-box
