@@ -1,0 +1,23 @@
+.block-container{
+    border: 3px solid blue;
+}
+
+.inline-container{
+    border: 3px solid red;
+}
+
+.block-container div{
+    border: 3px solid green;
+    width: 400px;
+    display: inline;
+}
+
+.inline-container span {
+    background-color: red;
+    width: 400px;
+    display: block;
+}
+/* inline 에는 박스 사이즈를 조정하는값을 수정할 수 없음
+display 를 사용해서 inline 요소를 block 요소로 바꿔 줄 수 있음
+물론 반대도 가능함
+*/
