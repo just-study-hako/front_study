@@ -1,0 +1,18 @@
+.title {
+    color: red;
+}
+
+.box1 .title{       /* 자손선택자를 활용*/
+    color:yellow;
+}
+
+.contents{
+    font-size: 28px;
+    font-style: italic; /*기울기*/
+    text-decoration: underline;
+    font-weight: 600;  /* 굵기 기본은 400*/
+}
+
+.title#headline{    /*다중선택자 활용*/
+    color: aquamarine;
+}
