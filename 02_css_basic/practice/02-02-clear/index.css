@@ -1,0 +1,33 @@
+.box1{
+    height: 400px;
+    background-color: red;
+    float: left;
+}
+
+.box2{
+    height: 200px;
+    background-color: blue;
+    float: right;
+}   
+
+.box{
+    width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* .box3{
+    clear: both;
+} */
+
+.clearfix{
+    clear:both;
+}
+/* 
+이렇게 하나의 박스를 만들어서 clear:both 를 넣어주면 
+해당 태그 이후로는 모두 아래로 밀리기에 box3, 4,5,6 이렇게 만들어서
+하나씩 넣어줄 필요가 없음.
+
+이외에도 아래에 또다시 정렬해주고 싶으면 또다시 clearfix 클래스명가진 div를
+하나 더 만들어 주기만 하면됨
+*/
