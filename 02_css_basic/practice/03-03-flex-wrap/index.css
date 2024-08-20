@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.container {
+    width: 600px;
+    height: 500px;
+    background-color: #eeeeee;
+    border: 2px solid red;
+    padding: 10px; 
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+}
+/*
+flex-wrap: nowrap; 기본값 형태를 구겨서라도 한줄에 넣음
+flex-wrap: wrap; 한줄에 최대한 채우고 넘으면 다음줄로
+*/
+
+.container div {
+    background-color: blue;
+    margin: 5px;
+    width: 150px;
+    color: white;
+
+}
+
+
+.box4{
+    order: 3;
+}
+
+.box5 {
+    order: 1;
+}
+
+/* order 로 순서를 배정해 줄 수 있는데 
+기본값이 0 이기에 1이상이면 가장 마지막으로 가버림*/
