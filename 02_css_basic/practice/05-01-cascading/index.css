@@ -1,0 +1,20 @@
+*{
+    background-color: yellow;
+}
+
+div{
+    background-color: aqua;
+}
+
+.text-class{
+    background-color: red;
+}
+
+#text-id{
+    background-color: blue;
+}
+
+
+/*
+    텍스트에는 가장 우선순위가 높은 id 선택자만 적용됨
+*/
