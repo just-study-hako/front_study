@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
+
+.container{
+    color: blue;
+    font-size: 40px;
+    border: 4px solid orange;
+}
+/* 상속이 되는 속성
+    color: 
+    font-size:
+
+*/
+
+/* 상속이 안되는 속성
+    border: 
+*/
