@@ -112,3 +112,7 @@ aspect-ratio: 6 / 5;
 .item .textBox__price {
     transition: all 0.4s ease-in-out;
 }
+
+.item .textBox__price{
+    transition: all 0.4s ease-in-out 0.1s;
+}
