@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 104px;
+    border: 3px solid red;
+    position: relative;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* animation-name: moveBox;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; */
+    position: absolute;
+    animation: moveBox 2s ease-in-out infinite alternate;
+}
+/*
+    animation-name: moveBox;                    애니메이션 이름
+    animation-duration: 2s;                     1회에 걸리는 시간
+    animation-timing-function: ease-in-out;     재생 패턴 (천천히 시작, 정상, 빠르게종료)
+    animation-iteration-count: infinite;        몇번 재생?
+    animation-direction: alternate;             재생방향 (정방향시작 역방향복귀)
+*/
+
+
+
+.item span {
+    color: white;
+}
+
+@keyframes moveBox{
+    from {
+        border-radius: 0;
+        left: 0;
+        background-color: blue;
+    }
+    to {
+        border-radius: 50%;
+        transform: scale(0.75);
+        left: calc(100% - 100px);
+        background-color: green;
+    }
+}
