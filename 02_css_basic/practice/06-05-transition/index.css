@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+.ex1__button {
+    text-align: left;
+    width: 240px;
+    height: 50px;
+    color: white;
+    background-color: #123ecf;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: width 0.3s linear 0s;
+}
+
+.ex1__button:hover{
+    width: 300px;
+}
+
+.ex2__button {
+    text-align: left;
+    width: 240px;
+    height: 50px;
+    color: white;
+    background-color: #123ecf;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: width 0.3s linear 0s, background-color 0.3s linear 0s;
+}
+
+.ex2__button:hover{
+    width: 300px;
+    background-color: #002398;
+}
+.ex3__button {
+    text-align: left;
+    width: 240px;
+    height: 50px;
+    color: white;
+    background-color: #123ecf;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: width 0.3s linear 1s, background-color 0.3s linear 0s;
+}
+
+.ex3__button:hover{
+    width: 300px;
+    background-color: #002398;
+}
+
