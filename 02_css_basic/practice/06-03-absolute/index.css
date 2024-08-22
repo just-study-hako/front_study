@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+
+.container {
+    border: 3px solid rebeccapurple;
+    padding: 10px;
+}
+
+.wrapper {
+    border: 3px solid red;
+    padding: 10px;
+}
+
+.item {
+    width: 200px;
+    height: 100px;
+    background-color: aqua;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* 부모중 relative가 없기에 body 기준으로 절대좌표로 입력됨*/
+
+
+.container {
+    position: relative;
+}
+
+.wrapper {
+    position: relative;
+}
+
+/* 어디에 relative 적용하느냐에 따라 item의 절대값이 바뀌며
+여러 부모에 있으면 가장 가까운 부모에 따름*/
