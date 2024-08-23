@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+.container {
+    border: 2px solid red;
+    display: grid;
+    grid-template-columns: repeat(2,1fr 2fr);
+    grid-template-rows: repeat(5, 100px);
+    grid-gap: 5px 2px;
+}
+/*
+  grid-gap: ; 그리드 간의 갭을 줄 수 있음 / 익스프로러 같은 일부 브라우저에서는 안됨
+*/
+.item{
+    border: 2px solid blue;
+}
+
+.item1 {
+    background-color: green;
+    grid-column: 1/ span 2;   
+    grid-row: 1/span 4;
+}
+
+/*
+grid-column: 1/ span 2;   1번 부터 2칸 이라는 뜻
+
+*/
