@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-newDate</title>
+    <script>
+        const counterMake = function ()  {
+            const nowDate = new Date();
+            const targetDate = new Date('2022-08-15');
+            const remaining = (nowDate - targetDate) / 1000
+            const remainingDate = Math.floor(remaining / 3600 / 24);
+            const remainingHours = Math.floor((remaining / 3600) % 24);
+
+            console.log(remainingDate + '일' + remainingHours + '시간 지났음');
+
+        };
+    </script>
+</head>
+<body>
+    <button onclick="counterMake()">버튼</button>
+</body>
+</html>
