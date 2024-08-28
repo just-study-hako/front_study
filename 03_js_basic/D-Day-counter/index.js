@@ -5,12 +5,20 @@
 // messageContainer.innerHTML = '<h3>D-Day를 입력해 주세요.</h3>';
 
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const messageContainer = document.querySelector('#d-day-message');
     const container = document.querySelector('#d-day-container');
 
     container.style.display = 'none'
     messageContainer.innerHTML = '<h3>D-Day를 입력해 주세요.</h3>';
+    const savedDate = localStorage.getItem('saved-date');
+    if (savedDate) {
+        starter(savedDate)
+    } else {
+        container.style.display = 'none';
+        messageContainer.innerHTML = '<h3>D-Day를 입력해 주세요.</h3>';
+    }
 });
 
 // document.addEventListener 이거 안감싸면 
@@ -35,6 +43,11 @@ const dateFormMaker = function () {
 
 
 const counterMaker = function (data)  {
+    const savedDate = localStorage.getItem('saved-date');
+    if(data !== savedDate){
+        localStorage.setItem('saved-date',data)
+    }
+    
     const messageContainer = document.querySelector('#d-day-message');
     const container = document.querySelector('#d-day-container');
 
@@ -94,15 +107,18 @@ const counterMaker = function (data)  {
 
 const intervalIdArr =[]
 
-const starter = function  () {
-
+const starter = function  (targetDateInput) {
+    if (!targetDateInput){
+        // 매개변수에 값이 들어았나 안들어왔나.
+        // 안들어 왔을 경우엔 받아와서 입력
+        targetDateInput = dateFormMaker();
+    }
     const messageContainer = document.querySelector('#d-day-message');
     const container = document.querySelector('#d-day-container');
     
     container.style.display = 'flex'
     messageContainer.style.display = 'none'
-    
-    const targetDateInput = dateFormMaker();
+
     counterMaker(targetDateInput)
     const intervalId =  setInterval(() => {counterMaker(targetDateInput)},1000);
     //  setInterval에 함수를 넣을때
@@ -117,6 +133,7 @@ const starter = function  () {
 
 
 const setClearInterval = function () {
+    localStorage.removeItem('saved-date');
     for (let i = 0 ; i < intervalIdArr.length; i++){
         clearInterval(intervalIdArr[i]);
     }
