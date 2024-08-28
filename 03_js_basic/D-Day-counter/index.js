@@ -1,5 +1,5 @@
-const messageContainer = document.querySelector('#d-day-message');
-const container = document.querySelector('#d-day-container');
+// const messageContainer = document.querySelector('#d-day-message');
+// const container = document.querySelector('#d-day-container');
 
 // // container.style.display = 'none'
 // messageContainer.innerHTML = '<h3>D-Day를 입력해 주세요.</h3>';
@@ -131,16 +131,16 @@ const starter = function  () {
 
 
 const setClearInterval = function () {
-    const messageContainer = document.querySelector('#d-day-message');
-    const container = document.querySelector('#d-day-container');
-    
-    container.style.display = 'none'
-    messageContainer.style.display = 'flex'
-    messageContainer.innerHTML = '<h3>D-Day를 입력해 주세요.</h3>';
-
     for (let i = 0 ; i < intervalIdArr.length; i++){
         clearInterval(intervalIdArr[i]);
     }
+}
 
-
+const resetTimer = function () {
+    const messageContainer = document.querySelector('#d-day-message');
+    const container = document.querySelector('#d-day-container');
+    container.style.display = 'none';
+    messageContainer.innerHTML = '<h3>D-Day를 입력해 주세요.</h3>';
+    messageContainer.style.display = 'flex';
+    setClearInterval();
 }
