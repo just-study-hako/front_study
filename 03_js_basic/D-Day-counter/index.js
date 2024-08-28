@@ -34,13 +34,12 @@ const dateFormMaker = function () {
 }
 
 
-const counterMaker = function ()  {
+const counterMaker = function (data)  {
     const messageContainer = document.querySelector('#d-day-message');
     const container = document.querySelector('#d-day-container');
 
-    const targetDateInput = dateFormMaker();
     const nowDate = new Date();
-    const targetDate = new Date(targetDateInput).setHours(0,0,0,0);
+    const targetDate = new Date(data).setHours(0,0,0,0);
     const remaining = (targetDate - nowDate) / 1000
     // 만약 remaining 이 0 이된다면, 타이머가 종료 되었습니다 출력
     // console.log(remaining);
@@ -118,15 +117,18 @@ const starter = function  () {
     
     container.style.display = 'flex'
     messageContainer.style.display = 'none'
-    // for (let i = 0; i < 100 ;i++){
-    //     setTimeout( () => {
-    //         counterMaker()
-    //     },1000 * i );
-    // }
-    counterMaker()
-    const intervalId =  setInterval(counterMaker,1000);
+    
+    const targetDateInput = dateFormMaker();
+    counterMaker(targetDateInput)
+    const intervalId =  setInterval(() => {counterMaker(targetDateInput)},1000);
+    //  setInterval에 함수를 넣을때
+    /*
+    함수를 써서 직접 넣어주면 매회차마다 함수가 동작함
+        () => {counterMaker(targetDateInput)}
+    그냥 함수를 넣어주면 한번만 실행하고 결과값만 반복함
+        counterMaker(targetDateInput)
+     */
     intervalIdArr.push(intervalId)
-    console.log(intervalIdArr);
 }
 
 
