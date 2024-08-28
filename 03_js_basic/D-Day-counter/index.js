@@ -72,38 +72,22 @@ const counterMaker = function (data)  {
         remainingSec : Math.floor(remaining) % 60,
     };
 
-    /*
-    // // 현재 출력되어있는 값
-    // const documentObj = {
-    //     days: document.getElementById('days'),
-    //     hours: document.getElementById('hours'),
-    //     min: document.getElementById('min'),
-    //     sec: document.getElementById('sec'),
-    // }
-    const timeKeys = Object.keys(remainingObj);
-    // const docKeys = Object.keys(documentObj);
-    // 키값만 가져옴
-    // console.log(timeKeys , docKeys)
+    const format = function(time) {
+        if(time < 10 ){
+            return '0'+time;
+        } else {
+            return time;
+        }
+    }
 
-    // for(let i = 0 ; i < timeKeys.length; i ++){
-    //     documentObj[docKeys[i]].textContent = remainingObj[timeKeys[i]];
-    // }
 
-    // 위 for문과 기능은 동일한 for-in
-    let i = 0;
-    // for(let key in documentObj){
-    //     documentObj[key].textContent = remainingObj[timeKeys[i]];
-    //     i++
-    // }
-    */
-
-    // 위 주석한 부분 압축한 내용
     const timeKeys = Object.keys(remainingObj);
     let i = 0;
     const documentArr = ['days','hours', 'min','sec'];
 
     for(let tag of documentArr){
-        document.getElementById(tag).textContent = remainingObj[timeKeys[i]];
+        const remainingTime =  format(remainingObj[timeKeys[i]]);
+        document.getElementById(tag).textContent = remainingTime;
         i++
     }
 };
