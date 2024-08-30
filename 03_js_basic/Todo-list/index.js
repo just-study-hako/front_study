@@ -4,11 +4,7 @@ const savedTodolist = JSON.parse(localStorage.getItem('saved-items'));
 
 console.log(savedTodolist)
 
-if (savedTodolist) {
-    for(let i = 0 ; i < savedTodolist.length; i++ ){
-        newTag(savedTodolist[i])
-    }
-}
+
 
 // 완료 여부 체크를 위한 EventListener 추가
 const newTag = function (storageData) {
@@ -71,4 +67,10 @@ const saveItemsFn = function () {
     // console.log(JSON.stringify(saveItems))
     // console.log(typeof JSON.stringify(saveItems))
     localStorage.setItem('saved-items',JSON.stringify(saveItems))
+}
+
+if (savedTodolist) {
+    for(let i = 0 ; i < savedTodolist.length; i++ ){
+        newTag(savedTodolist[i])
+    }
 }
