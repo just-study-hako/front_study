@@ -1,27 +1,45 @@
 const todoInput = document.querySelector('#todo-input');
 const todoList= document.querySelector('#todo-list');
+const savedTodolist = JSON.parse(localStorage.getItem('saved-items'));
+
+console.log(savedTodolist)
+
+if (savedTodolist) {
+    for(let i = 0 ; i < savedTodolist.length; i++ ){
+        newTag(savedTodolist[i])
+    }
+}
 
 // 완료 여부 체크를 위한 EventListener 추가
-const newTag = function () {
-    if (window.event.keyCode === 13 && todoInput.value){
-        const newLi = document.createElement('li')
-        const newSpan = document.createElement('span')
-        const newBtn = document.createElement('button')
+const newTag = function (storageData) {
+    let todoContents = todoInput.value
+    if(storageData){
+        todoContents = storageData.contents
+    }
+    const newLi = document.createElement('li')
+    const newSpan = document.createElement('span')
+    const newBtn = document.createElement('button')
 
-        newBtn.addEventListener('click',() => {
-            newLi.classList.toggle('complete')
-        })
-
-        newLi.addEventListener('dblclick',() => {
-            newLi.remove()
-        })
-
-        newSpan.textContent = todoInput.value;
-        newLi.appendChild(newBtn);
-        newLi.appendChild(newSpan);
-        todoList.appendChild(newLi);
-        todoInput.value ='';
+    newBtn.addEventListener('click',() => {
+        newLi.classList.toggle('complete')
         saveItemsFn()
+    })
+
+    newLi.addEventListener('dblclick',() => {
+        newLi.remove()
+    })
+
+    newSpan.textContent = todoContents;
+    newLi.appendChild(newBtn);
+    newLi.appendChild(newSpan);
+    todoList.appendChild(newLi);
+    todoInput.value ='';
+    saveItemsFn()
+}
+
+const keyCheck = function () {
+    if (window.event.keyCode === 13 && todoInput.value){
+        newTag()
     }
 }
 
@@ -48,5 +66,9 @@ const saveItemsFn = function () {
         };
         saveItems.push(todoObj);
     }
-    console.log(saveItems);
+    // console.log(saveItems);
+    // console.log(String(saveItems))
+    // console.log(JSON.stringify(saveItems))
+    // console.log(typeof JSON.stringify(saveItems))
+    localStorage.setItem('saved-items',JSON.stringify(saveItems))
 }
