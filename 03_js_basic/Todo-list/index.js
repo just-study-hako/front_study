@@ -2,9 +2,6 @@ const todoInput = document.querySelector('#todo-input');
 const todoList= document.querySelector('#todo-list');
 const savedTodolist = JSON.parse(localStorage.getItem('saved-items'));
 
-console.log(savedTodolist)
-
-
 
 // 완료 여부 체크를 위한 EventListener 추가
 const newTag = function (storageData) {
@@ -23,7 +20,14 @@ const newTag = function (storageData) {
 
     newLi.addEventListener('dblclick',() => {
         newLi.remove()
+        saveItemsFn()
     })
+
+    // 받아온 데이터가 만약 complete 상태면 그것도 구현해 줘야함.
+    // 옵셔널 체이닝 = ?를 붙여주면 해당 데이터가 실제로 존재할때만 찾아봄.
+    if(storageData?.complete === true){
+        newLi.classList.add('complete')
+    }
 
     newSpan.textContent = todoContents;
     newLi.appendChild(newBtn);
@@ -45,6 +49,7 @@ const deleteAll = function () {
     for(let i = 0 ; i < liList.length; i ++ ){
         liList[i].remove();
     }
+    saveItemsFn()
 }
 
 // 로컬 스토리지에 저장
@@ -53,6 +58,8 @@ const saveItemsFn = function () {
     // 데이터를 가져오는 방법
     // console.log(todoList.children[0].querySelector('span').textContent);
     // 위의 방식을 사용할것.
+
+ 
 
     for(let i = 0 ; i < todoList.children.length; i++ ){
         const todoObj = {
@@ -66,7 +73,15 @@ const saveItemsFn = function () {
     // console.log(String(saveItems))
     // console.log(JSON.stringify(saveItems))
     // console.log(typeof JSON.stringify(saveItems))
-    localStorage.setItem('saved-items',JSON.stringify(saveItems))
+
+//    if(saveItems.length=== 0) {
+//         localStorage.removeItem('saved-items')
+//     }else {
+//         localStorage.setItem('saved-items',JSON.stringify(saveItems))
+//     }
+
+    // 위 코드 조건이 두개로 나눠지는 경우 코드를 줄이는 사망 연산자
+    saveItems.length === 0 ? localStorage.removeItem('saved-items') : localStorage.setItem('saved-items',JSON.stringify(saveItems));
 }
 
 if (savedTodolist) {
