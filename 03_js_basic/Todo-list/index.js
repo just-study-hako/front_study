@@ -1,8 +1,7 @@
-// 완료 여부 체크를 위한 EventListener 추가
-
 const todoInput = document.querySelector('#todo-input');
 const todoList= document.querySelector('#todo-list');
 
+// 완료 여부 체크를 위한 EventListener 추가
 const newTag = function () {
     if (window.event.keyCode === 13 && todoInput.value){
         const newLi = document.createElement('li')
@@ -45,6 +44,7 @@ const saveItemsFn = function () {
         const todoObj = {
             contents : todoList.children[i].querySelector('span').textContent,
             complete : todoList.children[i].classList.contains('complete')  
+            // class에 complete가 있나 없나 - 불린으로
         };
         saveItems.push(todoObj);
     }
