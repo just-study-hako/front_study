@@ -90,15 +90,32 @@ if (savedTodolist) {
     }
 }
 
+const weatherSearch = function (position) {
+    const apiKey = "bbb1203d3c6e8238c9820735ea35fbbd"
+    fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${position.latitude}&lon=${position.longitude}&appid=${apiKey}`
+    ).then((res) => {
+        return res.json();
+    }).then((json) => {
+        console.log(json)
+        console.log(json.name)
+        console.log(json.weather[0].description)
+    })
+    .catch((err) => {
+        console.log(err)
+    });
+}
+
 const accessToGeo = function (position) {
     console.log(position);
     const positionObj = {
         latitude: position.coords.latitude,
         longitude : position.coords.longitude
     }
-    console.log(typeof position)
-    console.log(positionObj.latitude)
-    console.log(positionObj.longitude)
+    console.log(typeof position);
+    console.log(positionObj.latitude);
+    console.log(positionObj.longitude);
+    weatherSearch(positionObj);
 }
 
 const errorToGeo = function(err) {
