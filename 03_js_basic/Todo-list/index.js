@@ -89,3 +89,26 @@ if (savedTodolist) {
         newTag(savedTodolist[i])
     }
 }
+
+const accessToGeo = function (position) {
+    console.log(position);
+    const positionObj = {
+        latitude: position.coords.latitude,
+        longitude : position.coords.longitude
+    }
+    console.log(typeof position)
+    console.log(positionObj.latitude)
+    console.log(positionObj.longitude)
+}
+
+const errorToGeo = function(err) {
+    console.log(err);
+}
+
+// 현재 위치를 받아오는 함수
+const askForLocation = function () {
+    // navigator.geolocation.getCurrentPosition(success, error, [options]);
+    navigator.geolocation.getCurrentPosition(accessToGeo,errorToGeo);
+};
+
+askForLocation()
