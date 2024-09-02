@@ -91,6 +91,15 @@ if (savedTodolist) {
     }
 }
 
+
+const weatherDataActive = function ({ location,weather }) {
+    const locationNameTag = document.querySelector('#location-name-tag')
+    locationNameTag.textContent = location;
+    document.body.style.backgroundImage = `url('./images/${weather}.jpg')`
+};
+
+// position.latitude , position.longitude -> {latitude,longitude}
+// 구조 분해 할당
 const weatherSearch = function ({latitude,longitude}) {
     const apiKey = "bbb1203d3c6e8238c9820735ea35fbbd"
     fetch(
@@ -101,6 +110,11 @@ const weatherSearch = function ({latitude,longitude}) {
         // console.log(json)
         console.log(json.name)
         console.log(json.weather[0].main)
+        const weatherData = {
+            location : json.name,
+            weather : json.weather[0].main
+        }
+        weatherDataActive(weatherData)
     })
     .catch((err) => {
         console.log(err)
