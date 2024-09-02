@@ -38,10 +38,11 @@ const newTag = function (storageData) {
 }
 
 const keyCheck = function () {
-    if (window.event.keyCode === 13 && todoInput.value){
+    if (window.event.keyCode === 13 && todoInput.value.trim() !== ''){
         newTag()
     }
 }
+// trim : 양옆의 공백을 지워줌 ( 단순 띄어쓰기만 해서 넣은 공백도 걸러주기 위해서 )
 
 // 전체 삭제 버튼 기능
 const deleteAll = function () {
