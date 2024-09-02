@@ -93,6 +93,15 @@ if (savedTodolist) {
 
 
 const weatherDataActive = function ({ location,weather }) {
+    const weatherMainList = [
+        'Clear',
+        'Clouds',
+        'Drizzle',
+        'Rain',
+        'Snow',
+        'Thunderstorm'
+    ];
+    weather = weatherMainList.includes(weather) ? weather : 'Fog';
     const locationNameTag = document.querySelector('#location-name-tag')
     locationNameTag.textContent = location;
     document.body.style.backgroundImage = `url('./images/${weather}.jpg')`
