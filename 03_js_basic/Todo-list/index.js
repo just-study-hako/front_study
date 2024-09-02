@@ -91,31 +91,35 @@ if (savedTodolist) {
     }
 }
 
-const weatherSearch = function (position) {
+const weatherSearch = function ({latitude,longitude}) {
     const apiKey = "bbb1203d3c6e8238c9820735ea35fbbd"
     fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${position.latitude}&lon=${position.longitude}&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
     ).then((res) => {
         return res.json();
     }).then((json) => {
-        console.log(json)
+        // console.log(json)
         console.log(json.name)
-        console.log(json.weather[0].description)
+        console.log(json.weather[0].main)
     })
     .catch((err) => {
         console.log(err)
     });
 }
 
-const accessToGeo = function (position) {
-    console.log(position);
+// 기존 position 에서 넘어가던것 어차피 coords 만 쓰니까 바로 coords로 받도록함 (구조분해할당)
+const accessToGeo = function ({coords}) {
+    const {latitude, longitude} = coords;
+    // 실제 있는 키로 값을 바로 받아옴 ( 구조분해할당 )
+    // console.log(position);
     const positionObj = {
-        latitude: position.coords.latitude,
-        longitude : position.coords.longitude
+        latitude, longitude
     }
-    console.log(typeof position);
-    console.log(positionObj.latitude);
-    console.log(positionObj.longitude);
+    // 객체 키와 값의 이름이 똑같으면 : 생략가능 Shorthand property
+
+    // console.log(typeof position);
+    // console.log(positionObj.latitude);
+    // console.log(positionObj.longitude);
     weatherSearch(positionObj);
 }
 
