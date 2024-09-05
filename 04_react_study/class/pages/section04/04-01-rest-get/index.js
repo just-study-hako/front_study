@@ -1,5 +1,6 @@
 import axios from "axios"
-
+import 나만의페이지 from '../../section01/01-01-example'
+//  다른데서 만든 js도 가져와서 하나의 페이지로 합칠 수 있음.
 export default function RestGetPage () {
 
     function onClickAsync() {
@@ -16,6 +17,7 @@ export default function RestGetPage () {
         <div>
             <button onClick={onClickAsync}>REST-API(비동기) 요청하기</button>
             <button onClick={onClickSync}>REST-API(동기) 요청하기</button>
+            <나만의페이지/>
         </div>
     )
 }
