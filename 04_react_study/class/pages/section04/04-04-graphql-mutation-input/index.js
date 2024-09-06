@@ -1,17 +1,14 @@
 import { useMutation ,gql} from "@apollo/client"
 import { useState } from "react"
 
+
 const 나의그래프큐엘셋팅 = gql`
-    mutation createBoard($writer: String, $title: String, $contents: String){
-
-
-        createBoard(writer: $writer, title: $title, contents: $contents){
-            __id
-            number
+    mutation createGraphql($writer: String, $title: String, $contents: String){
+        createGraphql(writer: $writer, title: $title, contents: $contents){
             message
         }
     }
-`
+`;
 
 
 export default function GraphqlMutationPage (){
