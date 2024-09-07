@@ -28,6 +28,7 @@ public class GraphqlServiceImpl implements GraphqlService {
     @Override
     public void createGraphql(String requestBody){
         System.out.println(requestBody);
+        String variablesString = "";
         String writer = "";
         String title = "";
         String contents = "";
@@ -39,18 +40,37 @@ public class GraphqlServiceImpl implements GraphqlService {
             JsonNode jsonNode = jacksonObjectMapper.readTree(requestBody);
             System.out.println(jsonNode);
             // JSON 에서 query 문자열 추출
-            String query = jsonNode.path("query").asText();
+//            String query = jsonNode.path("query").asText();
+            String query = jsonNode.get("query").asText();
             System.out.println(query);
+            JsonNode variables = null;
+            if (query.contains("$writer")) {
+                variables = jsonNode.get("variables");
+            }
+
+            System.out.println(variablesString);
             // query 문자열에서 writer 값 추출
-            writer = extractWriter(query);
+            if (variables != null) {
+                writer = variables.get("writer").asText();
+            } else {
+                writer = extractWriter(query);
+            }
+
             System.out.println(writer);
             // title, contents 추출
-            title = extractTitle(query);
-            contents = extractContents(query);
+            if (variables != null) {
+                title = variables.get("title").asText();
+            } else {
+                title = extractTitle(query);
+            }
+            if (variables != null) {
+                contents = variables.get("contents").asText();
+            } else {
+                contents = extractContents(query);
+            }
 
-            Graphql graphql = new Graphql(writer,title,contents);
+            Graphql graphql = new Graphql(writer, title, contents);
             graphqlRepository.save(graphql);
-
 
 
         }catch (Exception e) {

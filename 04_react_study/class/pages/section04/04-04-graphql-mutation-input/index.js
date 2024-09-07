@@ -20,7 +20,7 @@ export default function GraphqlMutationPage (){
 
     const onClickSubmit = async () => {
         const result = await 나의함수({
-            $: {        // $ = variables 변수 $ 대신 직접 variables 라고 써도 됨.
+            variables: {        // $ = variables 변수 $ 대신 직접 variables 라고 써도 됨.
                 writer: writer,
                 title: title,
                 contents: contents
