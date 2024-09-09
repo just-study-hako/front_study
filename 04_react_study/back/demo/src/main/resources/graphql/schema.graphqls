@@ -1,16 +1,21 @@
-type Query {
-    getGraphql(id: ID!): Graphql
-}
 
 type Mutation {
     createGraphql(writer: String!, title: String!, contents: String!): Graphql
 }
 type Graphql {
     message: String!
+    writer: String!
+    title: String!
+    contents: String!
 }
 
-type Response {
-    writer: String
-    title: String
-    contents: String
+type Query {
+    fetchBoard(number: Int!): Board
+}
+
+type Board {
+    id: ID!
+    writer: String!
+    title: String!
+    contents: String!
 }

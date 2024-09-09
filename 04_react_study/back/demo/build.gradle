@@ -34,6 +34,7 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
 	implementation group: 'com.graphql-java-kickstart', name: 'graphql-java-kickstart', version: '12.0.0'
+	implementation 'org.springframework.boot:spring-boot-starter-graphql'
 
 }
 

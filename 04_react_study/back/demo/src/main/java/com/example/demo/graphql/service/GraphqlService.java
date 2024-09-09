@@ -1,9 +1,10 @@
 package com.example.demo.graphql.service;
 
-import com.example.demo.graphql.dto.GraphqlCreateRequestDto;
+import com.example.demo.graphql.entity.Graphql;
 
 public interface GraphqlService {
 
-    void createGraphql (GraphqlCreateRequestDto graphqlCreateRequestDto);
-    void createGraphql (String requestBody);
+    Graphql createGraphql (String writer, String title, String contents);
+    Graphql findGraphqlById(int number);
+
 }

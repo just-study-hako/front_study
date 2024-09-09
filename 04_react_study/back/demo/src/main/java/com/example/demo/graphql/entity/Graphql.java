@@ -28,6 +28,9 @@ public class Graphql {
     @Column(name = "contents",nullable = false)
     private String contents;
 
+    @Column(name = "menssage", nullable = false)
+    private String message;
+
 
     public Graphql(GraphqlCreateRequestDto graphqlCreateRequestDto) {
         this.writer = graphqlCreateRequestDto.getWriter();
@@ -35,12 +38,12 @@ public class Graphql {
         this.contents = graphqlCreateRequestDto.getContent();
     }
 
-    public Graphql(String writer, String title, String contents) {
+    public Graphql(String writer, String title, String contents,String message) {
         this.writer = writer;
         this.title = title;
         this.contents = contents;
+        this.message = message;
     }
-
 
 
 }
