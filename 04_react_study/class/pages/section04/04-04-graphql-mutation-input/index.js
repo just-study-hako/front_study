@@ -2,10 +2,15 @@ import { useMutation ,gql} from "@apollo/client"
 import { useState } from "react"
 
 
+
+
 const 나의그래프큐엘셋팅 = gql`
-    mutation createGraphql($writer: String, $title: String, $contents: String){
+    mutation createGraphql($writer: String!, $title: String!, $contents: String!){
         createGraphql(writer: $writer, title: $title, contents: $contents){
             message
+            writer
+            title
+            contents
         }
     }
 `;
