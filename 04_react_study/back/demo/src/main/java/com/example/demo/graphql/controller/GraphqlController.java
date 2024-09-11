@@ -31,6 +31,7 @@ public class GraphqlController {
 
     @QueryMapping
     public Graphql fetchBoard(@Argument int number){
+        System.out.println(number);
         return graphqlService.findGraphqlById(number);
     }
 
