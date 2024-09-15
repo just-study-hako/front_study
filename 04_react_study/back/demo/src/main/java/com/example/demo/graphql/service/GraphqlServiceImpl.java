@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -26,5 +28,14 @@ public class GraphqlServiceImpl implements GraphqlService {
     public Graphql findGraphqlById(int number) {
         Long id = Long.valueOf(number);
         return graphqlRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Graphql> findAllGraphql() {
+        List<Graphql> graphql = graphqlRepository.findAll();
+        if (graphql.isEmpty()) {
+            throw new RuntimeException("데이터 음슴");
+        }
+        return graphql;
     }
 }

@@ -12,6 +12,7 @@ type Graphql {
 
 type Query {
     fetchBoard(number: Int!): Board
+    fetchBoards : [Board!]!
 }
 
 type Board {

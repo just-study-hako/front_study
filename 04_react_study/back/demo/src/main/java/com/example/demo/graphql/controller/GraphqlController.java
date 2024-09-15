@@ -11,6 +11,8 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/graphql")
@@ -35,6 +37,11 @@ public class GraphqlController {
         return graphqlService.findGraphqlById(number);
     }
 
+    @QueryMapping
+    public List<Graphql> fetchBoards(){
+        System.out.println("여기 돌아감");
+        return graphqlService.findAllGraphql();
+    }
 
 
 
