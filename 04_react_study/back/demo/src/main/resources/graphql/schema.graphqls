@@ -1,7 +1,14 @@
 
 type Mutation {
     createGraphql(writer: String!, title: String!, contents: String!): Graphql
+    deleteBoard(id: Int!): GraphqlRemoveResponseDto
 }
+
+type GraphqlRemoveResponseDto {
+    message: String!
+}
+
+
 type Graphql {
     message: String!
     writer: String!

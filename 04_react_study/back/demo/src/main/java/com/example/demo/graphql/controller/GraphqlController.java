@@ -1,6 +1,7 @@
 package com.example.demo.graphql.controller;
 
 
+import com.example.demo.graphql.dto.GraphqlRemoveResponseDto;
 import com.example.demo.graphql.entity.Graphql;
 import com.example.demo.graphql.service.GraphqlService;
 import lombok.RequiredArgsConstructor;
@@ -41,6 +42,12 @@ public class GraphqlController {
     public List<Graphql> fetchBoards(){
         System.out.println("여기 돌아감");
         return graphqlService.findAllGraphql();
+    }
+
+    @MutationMapping
+    public GraphqlRemoveResponseDto deleteBoard(@Argument int id){
+        System.out.println(id + "삭제요청");
+        return graphqlService.removeGraphql(id);
     }
 
 

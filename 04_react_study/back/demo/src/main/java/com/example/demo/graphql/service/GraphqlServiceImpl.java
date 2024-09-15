@@ -1,5 +1,6 @@
 package com.example.demo.graphql.service;
 
+import com.example.demo.graphql.dto.GraphqlRemoveResponseDto;
 import com.example.demo.graphql.entity.Graphql;
 import com.example.demo.graphql.repository.GraphqlRepository;
 import lombok.RequiredArgsConstructor;
@@ -37,5 +38,13 @@ public class GraphqlServiceImpl implements GraphqlService {
             throw new RuntimeException("데이터 음슴");
         }
         return graphql;
+    }
+
+    @Override
+    public GraphqlRemoveResponseDto removeGraphql(int id){
+        Graphql graphql = findGraphqlById(id);
+        graphqlRepository.delete(graphql);
+        String message =  id + "번 게시글을 삭제하였습니다";
+        return new GraphqlRemoveResponseDto(message);
     }
 }
