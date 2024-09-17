@@ -1,0 +1,28 @@
+type Query {
+    getBoard(id: ID!): Board
+}
+
+type Mutation {
+    createBoard (input : BoardCreateRequestDto) : BoardCreateResponseDto
+}
+
+type Board {
+    id: ID!
+    writer: String!
+    title: String!
+    contents: String!
+}
+
+type BoardCreateResponseDto {
+    message: String!
+    writer: String!
+    title: String!
+    contents: String!
+    id: ID!
+}
+
+input BoardCreateRequestDto {
+    writer: String!
+    title: String!
+    contents: String!
+}
