@@ -2,13 +2,12 @@ package com.board.board.domain.service;
 
 import com.board.board.domain.dto.BoardCreateRequestDto;
 import com.board.board.domain.dto.BoardCreateResponseDto;
-import com.board.board.domain.dto.BoardResponseDto;
 import com.board.board.domain.entity.Board;
 import com.board.board.domain.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -28,10 +27,13 @@ public class BoardService {
         return new BoardCreateResponseDto(message, board);
     }
 
-    public BoardResponseDto getBoard(Long boardId) {
+    public Board getBoard(Long boardId) {
         System.out.println(boardId);
-        Board board = boardRepository.findById(boardId).get();
-        return new BoardResponseDto(board);
+        return boardRepository.findById(boardId).get();
+    }
 
+    public List<Board> getBoards(){
+        System.out.println("최신 10개 출력하기");
+        return boardRepository.findTop10ByOrderByIdDesc();
     }
 }

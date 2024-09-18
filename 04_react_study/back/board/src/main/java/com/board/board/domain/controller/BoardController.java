@@ -3,13 +3,15 @@ package com.board.board.domain.controller;
 
 import com.board.board.domain.dto.BoardCreateRequestDto;
 import com.board.board.domain.dto.BoardCreateResponseDto;
-import com.board.board.domain.dto.BoardResponseDto;
+import com.board.board.domain.entity.Board;
 import com.board.board.domain.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -27,9 +29,15 @@ public class BoardController {
     }
 
     @QueryMapping
-    public BoardResponseDto getBoard(@Argument Long boardId) {
+    public Board getBoard(@Argument Long boardId) {
         System.out.println("단일 보드 가져오기");
         System.out.println(boardId);
         return boardService.getBoard(boardId);
+    }
+
+    @QueryMapping
+    public List<Board> getBoards(){
+        System.out.println("가장 최신 게시글 10개 가져오기");
+        return boardService.getBoards();
     }
 }

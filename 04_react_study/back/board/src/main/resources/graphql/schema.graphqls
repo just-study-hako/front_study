@@ -1,12 +1,13 @@
 type Query {
-    getBoard(boardId: ID!): BoardResponseDto
+    getBoard(boardId: ID!): Board
+    getBoards : [Board]
 }
 
 type Mutation {
     createBoard (request : BoardCreateRequestDto) : BoardCreateResponseDto
 }
 
-type BoardResponseDto {
+type Board{
     id: ID!
     writer: String!
     title: String!
