@@ -3,7 +3,7 @@ type Query {
 }
 
 type Mutation {
-    createBoard (input : BoardCreateRequestDto) : BoardCreateResponseDto
+    createBoard (request : BoardCreateRequestDto) : BoardCreateResponseDto
 }
 
 type Board {

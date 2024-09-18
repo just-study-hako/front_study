@@ -16,11 +16,11 @@ public class BoardController {
     private final BoardService boardService;
 
     @MutationMapping
-    public BoardCreateResponseDto createBoard(@Argument  BoardCreateRequestDto input) {
+    public BoardCreateResponseDto createBoard(@Argument  BoardCreateRequestDto request) {
         System.out.println("보드 만들기 시작");
-        System.out.println(input.getWriter());
-        System.out.println(input.getTitle());
-        System.out.println(input.getContents());
-        return boardService.createBoard(input);
+        System.out.println(request.getWriter());
+        System.out.println(request.getTitle());
+        System.out.println(request.getContents());
+        return boardService.createBoard(request);
     }
 }
