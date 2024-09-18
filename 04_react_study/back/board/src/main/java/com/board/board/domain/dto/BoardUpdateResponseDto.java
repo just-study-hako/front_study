@@ -1,13 +1,12 @@
 package com.board.board.domain.dto;
 
-
 import com.board.board.domain.entity.Board;
 import lombok.Data;
 import lombok.Getter;
 
 @Data
 @Getter
-public class BoardCreateResponseDto {
+public class BoardUpdateResponseDto {
 
     private String message;
     private String writer;
@@ -15,7 +14,7 @@ public class BoardCreateResponseDto {
     private String contents;
     private Long id;
 
-    public BoardCreateResponseDto(String message, Board board) {
+    public BoardUpdateResponseDto(String message, Board board) {
         this.message = message;
         this.writer = board.getWriter();
         this.title = board.getTitle();

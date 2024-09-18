@@ -1,6 +1,7 @@
 package com.board.board.domain.entity;
 
 import com.board.board.domain.dto.BoardCreateRequestDto;
+import com.board.board.domain.dto.BoardUpdateRequestDto;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
@@ -36,6 +37,11 @@ public class Board {
     }
     public Board(BoardCreateRequestDto input) {
         this.writer = input.getWriter();
+        this.title = input.getTitle();
+        this.contents = input.getContents();
+    }
+
+    public void update(BoardUpdateRequestDto input) {
         this.title = input.getTitle();
         this.contents = input.getContents();
     }

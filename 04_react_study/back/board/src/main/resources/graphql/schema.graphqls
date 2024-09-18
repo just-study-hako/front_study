@@ -6,6 +6,21 @@ type Query {
 type Mutation {
     createBoard (request : BoardCreateRequestDto) : BoardCreateResponseDto
     deleteBoard (boardId: ID!): String
+    updateBoard (request : BoardUpdateRequestDto) : BoardUpdateResponseDto
+}
+
+input BoardUpdateRequestDto {
+    id: ID!
+    title: String!
+    contents: String!
+}
+
+type BoardUpdateResponseDto{
+    message: String!
+    writer: String!
+    title: String!
+    contents: String!
+    id: ID!
 }
 
 type Board{

@@ -3,6 +3,8 @@ package com.board.board.domain.controller;
 
 import com.board.board.domain.dto.BoardCreateRequestDto;
 import com.board.board.domain.dto.BoardCreateResponseDto;
+import com.board.board.domain.dto.BoardUpdateRequestDto;
+import com.board.board.domain.dto.BoardUpdateResponseDto;
 import com.board.board.domain.entity.Board;
 import com.board.board.domain.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -46,5 +48,12 @@ public class BoardController {
         System.out.println(boardId);
         System.out.println("게시글 삭제하기");
         return boardService.deleteBoard(boardId);
+    }
+
+    @MutationMapping
+    public BoardUpdateResponseDto updateBoard(@Argument BoardUpdateRequestDto request) {
+        System.out.println(request.getId());
+        System.out.println("게시글 수정하기");
+        return boardService.updateBoard(request);
     }
 }

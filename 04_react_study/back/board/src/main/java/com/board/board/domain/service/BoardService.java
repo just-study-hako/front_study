@@ -2,6 +2,8 @@ package com.board.board.domain.service;
 
 import com.board.board.domain.dto.BoardCreateRequestDto;
 import com.board.board.domain.dto.BoardCreateResponseDto;
+import com.board.board.domain.dto.BoardUpdateRequestDto;
+import com.board.board.domain.dto.BoardUpdateResponseDto;
 import com.board.board.domain.entity.Board;
 import com.board.board.domain.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
@@ -40,5 +42,14 @@ public class BoardService {
     public String deleteBoard(Long boardId) {
         boardRepository.deleteById(boardId);
         return (boardId+" 게시물이 삭제되었습니다.");
+    }
+
+    public BoardUpdateResponseDto updateBoard(BoardUpdateRequestDto input) {
+        Board board = boardRepository.findById(input.getId()).get();
+        board.update(input);
+        boardRepository.save(board);
+        String message = input.getId() + "게시글이 수정 완료되었습니다";
+        return new BoardUpdateResponseDto(message, board);
+
     }
 }
