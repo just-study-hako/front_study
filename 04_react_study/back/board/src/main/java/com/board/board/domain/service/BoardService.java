@@ -36,4 +36,9 @@ public class BoardService {
         System.out.println("최신 10개 출력하기");
         return boardRepository.findTop10ByOrderByIdDesc();
     }
+
+    public String deleteBoard(Long boardId) {
+        boardRepository.deleteById(boardId);
+        return (boardId+" 게시물이 삭제되었습니다.");
+    }
 }

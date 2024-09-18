@@ -5,6 +5,7 @@ type Query {
 
 type Mutation {
     createBoard (request : BoardCreateRequestDto) : BoardCreateResponseDto
+    deleteBoard (boardId: ID!): String
 }
 
 type Board{

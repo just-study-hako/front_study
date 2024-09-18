@@ -40,4 +40,11 @@ public class BoardController {
         System.out.println("가장 최신 게시글 10개 가져오기");
         return boardService.getBoards();
     }
+
+    @MutationMapping
+    public String deleteBoard(@Argument Long boardId) {
+        System.out.println(boardId);
+        System.out.println("게시글 삭제하기");
+        return boardService.deleteBoard(boardId);
+    }
 }
