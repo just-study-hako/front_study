@@ -11,8 +11,8 @@ type Mutation {
 
 input BoardUpdateRequestDto {
     id: ID!
-    title: String!
-    contents: String!
+    title: String
+    contents: String
 }
 
 type BoardUpdateResponseDto{

@@ -42,7 +42,11 @@ public class Board {
     }
 
     public void update(BoardUpdateRequestDto input) {
-        this.title = input.getTitle();
-        this.contents = input.getContents();
+        if (input.getTitle() != null) {
+            this.title = input.getTitle();
+        }
+        if (input.getContents() != null) {
+            this.contents = input.getContents();
+        }
     }
 }

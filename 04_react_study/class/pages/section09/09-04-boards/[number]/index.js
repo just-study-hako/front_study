@@ -21,7 +21,7 @@ export default function StaticRoutingMovedPage() {
     }) 
     console.log(data)
     const onClickUpdate = () =>{
-        router.push(`/section09/09-03-boards/${router.query.number}/edit`)
+        router.push(`/section09/09-04-boards/${router.query.number}/edit`)
     }
     return (
         <div>
