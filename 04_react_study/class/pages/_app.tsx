@@ -1,5 +1,6 @@
 import { ApolloClient,InMemoryCache, ApolloProvider } from "@apollo/client";
 import { AppProps } from "next/app";
+import Layout from "../src/components/commons/layout";
 
 export default function App({ Component }: AppProps) {
 
@@ -18,7 +19,9 @@ export default function App({ Component }: AppProps) {
         ======여기는 _app.js 컴포넌트 시작부분 입니다.======
       </div>
     <ApolloProvider client={client}>
-      <Component />
+      <Layout>
+        <Component />
+      </Layout>
     </ApolloProvider>
       <div>
         ======여기는 _app.js 컴포넌트 마지막 부분 입니다.======
