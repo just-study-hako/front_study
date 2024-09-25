@@ -7,6 +7,9 @@ import com.board.board.domain.dto.BoardUpdateResponseDto;
 import com.board.board.domain.entity.Board;
 import com.board.board.domain.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,9 +37,17 @@ public class BoardService {
         return boardRepository.findById(boardId).get();
     }
 
-    public List<Board> getBoards(){
+    public List<Board> getBoards(int page){
         System.out.println("최신 10개 출력하기");
-        return boardRepository.findTop10ByOrderByIdDesc();
+        System.out.println(page);
+        // PageRequest.of(pageNumber, pageSize, Sort.by("id").descending())를 사용하여 페이지네이션 설정
+        PageRequest pageRequest = PageRequest.of(page - 1, 10, Sort.by("id").descending());
+
+        // repository에서 페이지네이션된 결과를 가져옴
+        Page<Board> boardPage = boardRepository.findAllByOrderByIdDesc(pageRequest);
+
+        // List로 반환
+        return boardPage.getContent();
     }
 
     public String deleteBoard(Long boardId) {

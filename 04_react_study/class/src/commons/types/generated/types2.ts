@@ -84,3 +84,8 @@ export type IQuery = {
 export type IQueryGetBoardArgs = {
   boardId: Scalars['ID']['input'];
 };
+
+
+export type IQueryGetBoardsArgs = {
+  page?: InputMaybe<Scalars['Int']['input']>;
+};

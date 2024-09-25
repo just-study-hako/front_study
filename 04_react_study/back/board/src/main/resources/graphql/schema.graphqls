@@ -1,6 +1,6 @@
 type Query {
     getBoard(boardId: ID!): Board
-    getBoards : [Board]
+    getBoards(page:Int = 1) : [Board]
 }
 
 type Mutation {

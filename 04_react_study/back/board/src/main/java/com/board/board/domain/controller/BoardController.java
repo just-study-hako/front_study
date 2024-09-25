@@ -12,6 +12,7 @@ import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -38,9 +39,9 @@ public class BoardController {
     }
 
     @QueryMapping
-    public List<Board> getBoards(){
+    public List<Board> getBoards(@Argument int page){
         System.out.println("가장 최신 게시글 10개 가져오기");
-        return boardService.getBoards();
+        return boardService.getBoards(page);
     }
 
     @MutationMapping
