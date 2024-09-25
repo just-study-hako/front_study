@@ -1,14 +1,9 @@
-import { ApolloClient,InMemoryCache, ApolloProvider } from "@apollo/client";
 import { AppProps } from "next/app";
 import Layout from "../src/components/commons/layout";
+import ApolloSetting from "../src/components/commons/apollo";
 
 export default function App({ Component }: AppProps) {
 
-  // 그래프ql 세팅
-  const client = new ApolloClient({
-    uri: "http://localhost:8080/graphql",
-    cache: new InMemoryCache() // 컴퓨터의 메모리에 백엔드에서 받아온 데이터 임시로 저장해 놓기
-  })
 
 
   return (
@@ -18,11 +13,11 @@ export default function App({ Component }: AppProps) {
         사실상 다른 페이지들을 여기로 가져와서 실행한다는 느낌. */}
         ======여기는 _app.js 컴포넌트 시작부분 입니다.======
       </div>
-    <ApolloProvider client={client}>
-      <Layout>
-        <Component />
-      </Layout>
-    </ApolloProvider>
+      <ApolloSetting>
+        <Layout>
+          <Component />
+        </Layout>
+      </ApolloSetting>
       <div>
         ======여기는 _app.js 컴포넌트 마지막 부분 입니다.======
       </div>
