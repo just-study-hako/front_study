@@ -78,6 +78,7 @@ export type IQuery = {
   __typename?: 'Query';
   getBoard?: Maybe<IBoard>;
   getBoards?: Maybe<Array<Maybe<IBoard>>>;
+  getBoardsCount?: Maybe<Scalars['String']['output']>;
 };
 
 

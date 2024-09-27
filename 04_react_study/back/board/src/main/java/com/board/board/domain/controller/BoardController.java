@@ -44,6 +44,12 @@ public class BoardController {
         return boardService.getBoards(page);
     }
 
+    @QueryMapping
+    public String getBoardsCount(){
+        System.out.println("보드 갯수 알려주기");
+        return boardService.getBoardsCount();
+    }
+
     @MutationMapping
     public String deleteBoard(@Argument Long boardId) {
         System.out.println(boardId);

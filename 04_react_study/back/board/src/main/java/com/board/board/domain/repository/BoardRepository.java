@@ -12,5 +12,6 @@ import java.util.List;
 public interface BoardRepository extends JpaRepository<Board, Long> {
 
     Page<Board> findAllByOrderByIdDesc(Pageable pageable);
-    List<Board> findTop10ByOrderByIdDesc();
+    Long countBoardByIdNotNull();
+
 }

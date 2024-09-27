@@ -61,6 +61,9 @@ public class BoardService {
         boardRepository.save(board);
         String message = input.getId() + "게시글이 수정 완료되었습니다";
         return new BoardUpdateResponseDto(message, board);
+    }
 
+    public String getBoardsCount(){
+        return String.valueOf(boardRepository.countBoardByIdNotNull());
     }
 }
