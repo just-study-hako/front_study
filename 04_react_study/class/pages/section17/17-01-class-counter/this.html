@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>this의 이해</title>
+    <script>
+        class ClassCounterPage {
+            count = 10
+
+            onClickCountUP () {
+                console.log("현재 카운트 : ", this.count);
+                // 출력해보면 this.count 가 undefined 나옴.
+                // this는 실행 주체에 따라 다름.
+                // 위 경우 버튼에 기능을 부여한것이라서 버튼에 this가 적용이 되버림
+
+                // 해결법은 2가지
+                //
+                // 1. bind 
+                // 2. 화살표함수
+                
+
+            }
+            // 2번 방법 화살표함수
+            onClickCountUP2 = () => {
+                console.log("현재 카운트 : ", this.count);
+                
+                // 그냥 화살표함수로 만들면 해결됨
+
+            }
+
+            render () {
+                // jsx로 입력한게 실제로 돌아갈땐 이렇게 바뀜 / 리액트가 내부에서 자동으로 동작시키는 내용들
+                const button = document.createElement("button");
+                button.count = "버튼에 카운트라는 글을 넣음"
+                button.innerText = "카운트 올리기";
+                button.addEventListener("click",this.onClickCountUP.bind(this));    // 지금 여기의 this를 그쪽의 this랑 연결해서 사용해줘
+                document.body.appendChild(button);
+            }
+
+            render2 () {
+                const button = document.createElement("button");
+                button.count = "버튼에 카운트라는 글을 넣음"
+                button.innerText = "카운트 올리기";
+                button.addEventListener("click",this.onClickCountUP2); 
+                document.body.appendChild(button);
+            }
+        }
+
+        window.onload = () => {
+            const counter = new ClassCounterPage();
+            counter.render();
+            counter.render2();
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
